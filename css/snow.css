@@ -1,0 +1,11 @@
+/* 放大雪花按钮图标 */
+#snow-toggle-btn .nav-link i {
+    transform: scale(1.2);
+    display: inline-block;
+}
+
+/* 星星闪烁动画 */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
