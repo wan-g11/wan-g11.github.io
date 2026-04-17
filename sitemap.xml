@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wan-g11.github.io/shuoshuo/data.json</loc>
+    
+    <lastmod>2026-04-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wan-g11.github.io/shuoshuo/index.html</loc>
+    
+    <lastmod>2026-04-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wan-g11.github.io/timeline/index.html</loc>
     
     <lastmod>2026-04-16</lastmod>
@@ -49,7 +67,7 @@
 
   <url>
     <loc>https://wan-g11.github.io/</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -57,14 +75,14 @@
   
   <url>
     <loc>https://wan-g11.github.io/tags/Hexo/</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://wan-g11.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -73,7 +91,7 @@
   
   <url>
     <loc>https://wan-g11.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
