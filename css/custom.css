@@ -1,1 +1,1 @@
-.layout.post #aside-content .card-announcement,.layout.post #aside-content .card-archives,.layout.post #aside-content .card-author,.layout.post #aside-content .card-webinfo{display:none!important}.layout.post #aside-content .card-toc{display:block!important}
+[data-type=post] #aside-content .card-announcement,[data-type=post] #aside-content .card-archives,[data-type=post] #aside-content .card-info,[data-type=post] #aside-content .card-webinfo{display:none!important}
