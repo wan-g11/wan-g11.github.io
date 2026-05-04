@@ -1,1 +1,18 @@
-.post #aside-content .card-announcement,.post #aside-content .card-archives,.post #aside-content .card-info,.post #aside-content .card-webinfo{display:none!important}
+/* ========== 文章页侧边栏只显示目录 ========== */
+
+/* 文章页隐藏头像、公告、归档、网站信息卡片 */
+.post #aside-content .card-info,
+.post #aside-content .card-announcement,
+.post #aside-content .card-archives,
+.post #aside-content .card-webinfo {
+    display: none !important;
+}
+
+/* ========== 说说配图：固定大小 ========== */
+.shuoshuo-content img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 8px;
+    margin: 8px 0;
+    object-fit: cover;
+}
