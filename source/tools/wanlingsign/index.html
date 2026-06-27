@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万灵签 · 每日运势</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<style>
+/* ===== Reset & Base ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  background: #f5f0e8;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(196, 57, 43, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(212, 160, 23, 0.04) 0%, transparent 50%);
+  font-family: 'ZCOOL XiaoWei', 'KaiTi', 'STKaiti', 'SimSun', 'Noto Serif SC', serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: #3d2b1f;
+  padding: 20px;
+}
+
+/* ===== Main Container ===== */
+.container {
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  padding: 30px 20px 60px;
+}
+
+/* ===== Decorative Background Pattern ===== */
+.container::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(212, 160, 23, 0.03) 40px, rgba(212, 160, 23, 0.03) 41px),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(212, 160, 23, 0.03) 40px, rgba(212, 160, 23, 0.03) 41px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container > * { position: relative; z-index: 1; }
+
+/* ===== Header ===== */
+.header { margin-bottom: 30px; position: relative; }
+
+.header-title {
+  font-family: 'Ma Shan Zheng', 'KaiTi', serif;
+  font-size: 52px;
+  color: #c0392b;
+  letter-spacing: 12px;
+  text-shadow: 2px 2px 0 rgba(192, 57, 43, 0.1);
+  line-height: 1.2;
+}
+
+.header-sub {
+  font-size: 14px;
+  color: #a0845c;
+  margin-top: 4px;
+  letter-spacing: 6px;
+}
+
+.header-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4a017, transparent);
+  margin: 8px auto 0;
+}
+
+/* ===== Seal Stamp ===== */
+.seal {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #c0392b;
+  color: #c0392b;
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 16px;
+  line-height: 44px;
+  text-align: center;
+  transform: rotate(-8deg);
+  opacity: 0.7;
+  margin-bottom: 15px;
+}
+
+/* ===== Lot Pot (签筒) ===== */
+.pot-wrapper {
+  margin: 30px auto;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pot-wrapper.disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.pot-wrapper .hint-text {
+  font-size: 14px;
+  color: #a0845c;
+  margin-top: 10px;
+  letter-spacing: 2px;
+  transition: opacity 0.3s;
+}
+
+.pot-wrapper.already-drawn .hint-text { opacity: 0; }
+
+/* The lot pot SVG-style using CSS */
+.pot {
+  width: 140px;
+  height: 160px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Sticks (签条) in pot */
+.sticks {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 110px;
+  z-index: 2;
+}
+
+.stick {
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  height: 90px;
+  background: linear-gradient(to top, #d4a017, #f5deb3);
+  border-radius: 2px 2px 0 0;
+  transform-origin: bottom center;
+}
+
+.stick:nth-child(1) { left: 10px; transform: rotate(-10deg); height: 85px; }
+.stick:nth-child(2) { left: 20px; transform: rotate(-5deg); height: 92px; }
+.stick:nth-child(3) { left: 30px; transform: rotate(-2deg); height: 88px; }
+.stick:nth-child(4) { left: 38px; height: 95px; }
+.stick:nth-child(5) { left: 46px; transform: rotate(2deg); height: 87px; }
+.stick:nth-child(6) { left: 54px; transform: rotate(5deg); height: 93px; }
+.stick:nth-child(7) { left: 62px; transform: rotate(10deg); height: 86px; }
+
+.stick .stick-top {
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: #c0392b;
+  border-radius: 50%;
+}
+
+/* Pot body - vase shape */
+.pot-body {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 70px;
+  background: linear-gradient(180deg, #8b4513 0%, #a0522d 30%, #8b4513 60%, #6b3410 100%);
+  border-radius: 0 0 18px 18px;
+  z-index: 3;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.pot-body::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -4px;
+  right: -4px;
+  height: 16px;
+  background: linear-gradient(180deg, #a0522d, #8b4513);
+  border-radius: 50%;
+  z-index: 4;
+}
+
+.pot-body::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 20%;
+  width: 60%;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+}
+
+.pot-rim {
+  position: absolute;
+  bottom: 62px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 108px;
+  height: 12px;
+  background: linear-gradient(180deg, #6b3410, #8b4513);
+  border-radius: 6px;
+  z-index: 4;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* ===== Shake Animation ===== */
+@keyframes shake-pot {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(-12deg); }
+  30% { transform: rotate(10deg); }
+  45% { transform: rotate(-8deg); }
+  60% { transform: rotate(6deg); }
+  75% { transform: rotate(-3deg); }
+  90% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes stick-fly {
+  0% { transform: translateX(-50%) translateY(0) rotate(0deg); opacity: 1; }
+  30% { transform: translateX(-50%) translateY(-30px) rotate(5deg); opacity: 1; }
+  100% { transform: translateX(60px) translateY(-180px) rotate(30deg); opacity: 0; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes card-reveal {
+  0% { opacity: 0; transform: scale(0.8) rotate(-3deg); }
+  60% { transform: scale(1.02) rotate(0.5deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(212, 160, 23, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(212, 160, 23, 0.25); }
+}
+
+.pot-wrapper.shaking .pot { animation: shake-pot 0.6s ease-in-out; }
+
+.pot-wrapper.shaking .stick-active {
+  animation: stick-fly 0.5s ease-out 0.3s forwards;
+}
+
+.pot-wrapper.shaking { pointer-events: none; }
+
+/* ===== Fortune Card ===== */
+.card {
+  display: none;
+  margin: 20px auto 0;
+  max-width: 360px;
+  opacity: 0;
+  animation: card-reveal 0.8s ease-out forwards;
+}
+
+.card.visible {
+  display: block;
+}
+
+.card-inner {
+  background: linear-gradient(135deg, #faf6ef 0%, #f0e8d8 100%);
+  border: 1px solid #d4a017;
+  border-radius: 8px;
+  padding: 32px 28px 24px;
+  position: relative;
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.card-inner::before {
+  content: '';
+  position: absolute;
+  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  border: 1px solid rgba(212, 160, 23, 0.2);
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+/* Fortune level badge */
+.fortune-badge {
+  display: inline-block;
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 42px;
+  padding: 4px 30px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  letter-spacing: 8px;
+  position: relative;
+}
+
+.fortune-badge.da-ji { color: #d4a017; text-shadow: 0 0 20px rgba(212,160,23,0.3); }
+.fortune-badge.ji { color: #c0392b; }
+.fortune-badge.ping { color: #8b6914; }
+.fortune-badge.xiong { color: #666; }
+.fortune-badge.da-xiong { color: #333; }
+
+/* Fortune text (签文) */
+.fortune-text {
+  font-family: 'Ma Shan Zheng', cursive;
+  font-size: 28px;
+  color: #3d2b1f;
+  line-height: 1.5;
+  margin: 12px 0 8px;
+  padding: 0 10px;
+}
+
+.fortune-desc {
+  font-size: 14px;
+  color: #8b7355;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* 宜忌 */
+.advice {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 18px 0 20px;
+  font-size: 14px;
+}
+
+.advice-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.advice-label {
+  font-size: 11px;
+  color: #a0845c;
+  letter-spacing: 2px;
+}
+
+.advice-do {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+.advice-dont {
+  color: #666;
+}
+
+/* Card footer */
+.card-footer {
+  font-size: 11px;
+  color: #a0845c;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(212, 160, 23, 0.2);
+  letter-spacing: 1px;
+}
+
+/* ===== Already Drawn State ===== */
+.already-drawn-msg {
+  display: none;
+  font-size: 15px;
+  color: #8b7355;
+  margin: 20px 0;
+  letter-spacing: 2px;
+}
+
+.already-drawn-msg.visible { display: block; }
+
+/* ===== Reset Button ===== */
+.reset-btn {
+  display: none;
+  margin-top: 24px;
+  padding: 8px 20px;
+  background: none;
+  border: 1px solid #d4a017;
+  color: #a0845c;
+  font-family: 'ZCOOL XiaoWei', 'KaiTi', serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 4px;
+}
+
+.reset-btn:hover {
+  background: #d4a017;
+  color: #fff;
+}
+
+/* ===== Footer ===== */
+.footer-note {
+  margin-top: 40px;
+  font-size: 12px;
+  color: #c0a080;
+  letter-spacing: 2px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .container { padding: 20px 12px 40px; }
+  .header-title { font-size: 40px; letter-spacing: 8px; }
+  .pot { width: 120px; height: 140px; }
+  .pot-body { width: 100px; height: 60px; }
+  .pot-rim { width: 92px; bottom: 52px; }
+  .sticks { width: 68px; height: 94px; }
+  .stick { height: 76px; }
+  .fortune-badge { font-size: 36px; }
+  .fortune-text { font-size: 24px; }
+  .card-inner { padding: 24px 18px 20px; }
+  .advice { gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Seal -->
+  <div class="seal">灵</div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-title">万灵签</div>
+    <div class="header-sub">— 诚心叩问 · 天机自现 —</div>
+    <div class="header-line"></div>
+  </div>
+
+  <!-- Lot Pot Area -->
+  <div class="pot-wrapper" id="potWrapper">
+    <div class="pot" id="pot">
+      <div class="sticks" id="sticks">
+        <div class="stick"><div class="stick-top"></div></div>
+        <div class="stick"><div class="stick-top"></div></div>
+        <div class="stick"><div class="stick-top"></div></div>
+        <div class="stick"><div class="stick-top"></div></div>
+        <div class="stick"><div class="stick-top"></div></div>
+        <div class="stick"><div class="stick-top"></div></div>
+        <div class="stick"><div class="stick-top"></div></div>
+      </div>
+      <div class="pot-rim"></div>
+      <div class="pot-body"></div>
+    </div>
+    <div class="hint-text" id="hintText">点击签筒，抽取今日运势</div>
+    <div class="already-drawn-msg" id="alreadyMsg">今日已抽签，明日再来</div>
+  </div>
+
+  <!-- Fortune Card -->
+  <div class="card" id="card">
+    <div class="card-inner">
+      <div class="fortune-badge" id="fortuneBadge">大吉</div>
+      <div class="fortune-text" id="fortuneText">紫气东来，百事亨通</div>
+      <div class="fortune-desc" id="fortuneDesc"></div>
+      <div class="advice" id="advice">
+        <div class="advice-item">
+          <span class="advice-label">宜</span>
+          <span class="advice-do" id="adviceDo">大胆行事</span>
+        </div>
+        <div class="advice-item">
+          <span class="advice-label">忌</span>
+          <span class="advice-dont" id="adviceDont">畏首畏尾</span>
+        </div>
+      </div>
+      <div class="card-footer" id="cardFooter">— 万灵签 · 第 1 签 —</div>
+    </div>
+  </div>
+
+  <!-- Reset (for testing) -->
+  <button class="reset-btn" id="resetBtn">重置</button>
+
+  <div class="footer-note">心诚则灵 · 一日一签</div>
+</div>
+
+<script>
+// ===== 签文库 =====
+const FORTUNES = {
+  '大凶': [
+    { text: '潜龙勿用，静候佳音', desc: '龙潜于渊，非不能飞，待时而动也', do: '静思、独处', dont: '远行、投资' },
+    { text: '行路难，多歧路，今安在', desc: '前路多艰，莫要冒进，且停且看', do: '反思、整理', dont: '决策、冒险' },
+    { text: '屋漏偏逢连夜雨', desc: '诸事不顺，宜避风头，保全自身', do: '避风头、休息', dont: '出头、投资' },
+    { text: '虎落平阳被犬欺', desc: '时运不济，暂且隐忍，静待转机', do: '隐忍、低调', dont: '硬刚、争论' },
+    { text: '枯木逢春犹再发', desc: '低谷之中暗藏生机，但非今日', do: '等待、积蓄', dont: '冲动、表白' },
+  ],
+  '凶': [
+    { text: '乌云遮月，暂隐锋芒', desc: '月色朦胧，不宜展露，守成为上', do: '休息、学习', dont: '远行、投资' },
+    { text: '逆水行舟，不进则退', desc: '形势所迫，不进则退，咬牙坚持', do: '坚守、忍耐', dont: '扩张、冒进' },
+    { text: '迷雾遮眼，待时而动', desc: '前路不清，不可妄动，宜静观其变', do: '观察、积蓄', dont: '表白、跳槽' },
+    { text: '事与愿违，暂且忍耐', desc: '计划受阻，非人力可改，顺其自然', do: '反思、调整', dont: '抱怨、冲动' },
+    { text: '孤舟独钓寒江雪', desc: '形单影只，诸事需亲力亲为', do: '独立、专注', dont: '合作、依赖' },
+  ],
+  '平': [
+    { text: '风平浪静，日复一日', desc: '波澜不惊，寻常即福，平淡是真', do: '按部就班', dont: '多虑' },
+    { text: '无风无浪亦无晴', desc: '不好不坏，不上不下，安心即可', do: '保持现状', dont: '冲动改变' },
+    { text: '中规中矩，无咎无誉', desc: '无功无过，平平淡淡才是真', do: '稳健行事', dont: '投机取巧' },
+    { text: '静水流深，暗藏玄机', desc: '表面平静，实则暗流涌动，留心观察', do: '观察、思考', dont: '大意' },
+    { text: '波澜不惊，岁月静好', desc: '平平淡淡的一天，享受当下便好', do: '享受当下', dont: '庸人自扰' },
+    { text: '行到水穷处，坐看云起时', desc: '随遇而安，不强求，不执着', do: '随缘、放松', dont: '纠结、强求' },
+    { text: '偷得浮生半日闲', desc: '今日宜摸鱼，不宜奋斗', do: '休息、摸鱼', dont: '内卷、焦虑' },
+  ],
+  '吉': [
+    { text: '东风已至，扬帆正当时', desc: '好风凭借力，助你上青云', do: '行动、社交', dont: '懈怠、拖延' },
+    { text: '柳暗花明，好事将近', desc: '黑暗将尽，黎明在前，再坚持一下', do: '主动出击', dont: '犹豫不决' },
+    { text: '顺水行舟，风平浪静', desc: '诸事顺遂，乘势而为，事半功倍', do: '推进计划', dont: '半途而废' },
+    { text: '春风得意马蹄疾', desc: '心情愉悦，诸事顺心，宜约好友', do: '约会、出行', dont: '宅家' },
+    { text: '好事多磨，终得圆满', desc: '历经波折，终将收获，值得期待', do: '坚持到底', dont: '半途放弃' },
+    { text: '山重水复疑无路，柳暗花明又一村', desc: '转机就在眼前，别放弃', do: '再试一次', dont: '放弃' },
+    { text: '他乡遇故知', desc: '今日有惊喜，可能会遇到老朋友', do: '社交、联络', dont: '独处' },
+  ],
+  '大吉': [
+    { text: '紫气东来，百事亨通', desc: '祥瑞降临，诸事顺遂，百无禁忌', do: '大胆行事', dont: '畏首畏尾' },
+    { text: '云开见日，万物生辉', desc: '拨云见日，豁然开朗，一切皆明', do: '大展宏图', dont: '保守退缩' },
+    { text: '天时地利人和', desc: '万事俱备，只欠东风，今日行动最佳', do: '全力以赴', dont: '错失良机' },
+    { text: '鸿运当头，万事如意', desc: '好运当头，心想事成，快去行动', do: '表白、签约', dont: '犹豫' },
+    { text: '金榜题名，心想事成', desc: '努力终有回报，今日宜冲刺目标', do: '冲刺目标', dont: '分心' },
+    { text: '乘风破浪会有时', desc: '时机已到，直挂云帆济沧海', do: '大胆去做', dont: '瞻前顾后' },
+    { text: '一日看尽长安花', desc: '春风得意，事事顺心，今日你做主', do: '主动出击', dont: '犹豫退缩' },
+  ]
+};
+
+const LEVELS = ['大凶', '凶', '平', '吉', '大吉'];
+const WEIGHTS = [1, 2, 4, 4, 2]; // 权重: 大凶8%, 凶15%, 平31%, 吉31%, 大吉15%
+
+// ===== 生成加权随机 =====
+function weightedRandom() {
+  const total = WEIGHTS.reduce((a, b) => a + b, 0);
+  let r = Math.random() * total;
+  for (let i = 0; i < LEVELS.length; i++) {
+    r -= WEIGHTS[i];
+    if (r <= 0) return LEVELS[i];
+  }
+  return '平';
+}
+
+// ===== 获取今日运势 =====
+function getTodayFortune() {
+  const level = weightedRandom();
+  const pool = FORTUNES[level];
+  const idx = Math.floor(Math.random() * pool.length);
+  return { level, ...pool[idx] };
+}
+
+// ===== DOM =====
+const potWrapper = document.getElementById('potWrapper');
+const pot = document.getElementById('pot');
+const card = document.getElementById('card');
+const hintText = document.getElementById('hintText');
+const alreadyMsg = document.getElementById('alreadyMsg');
+const fortuneBadge = document.getElementById('fortuneBadge');
+const fortuneText = document.getElementById('fortuneText');
+const fortuneDesc = document.getElementById('fortuneDesc');
+const adviceDo = document.getElementById('adviceDo');
+const adviceDont = document.getElementById('adviceDont');
+const cardFooter = document.getElementById('cardFooter');
+const resetBtn = document.getElementById('resetBtn');
+
+// ===== LocalStorage 控制 =====
+const STORAGE_KEY = 'wanlingsign_today';
+
+function getTodayKey() {
+  const d = new Date();
+  return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+}
+
+// ===== 显示签文 =====
+function showFortune(fortune, count) {
+  const badgeClassMap = {
+    '大凶': 'da-xiong',
+    '凶': 'xiong',
+    '平': 'ping',
+    '吉': 'ji',
+    '大吉': 'da-ji'
+  };
+  fortuneBadge.textContent = fortune.level;
+  fortuneBadge.className = `fortune-badge ${badgeClassMap[fortune.level]}`;
+  fortuneText.textContent = fortune.text;
+  fortuneDesc.textContent = fortune.desc;
+  adviceDo.textContent = fortune.do;
+  adviceDont.textContent = fortune.dont;
+  cardFooter.textContent = `— 万灵签 · 第 ${count} 签 —`;
+
+  card.style.display = 'block';
+  card.style.animation = 'none';
+  card.offsetHeight; // force reflow
+  card.style.animation = 'card-reveal 0.8s ease-out forwards';
+  card.classList.add('visible');
+}
+
+// ===== 摇签流程 =====
+function drawLot() {
+  if (potWrapper.classList.contains('disabled')) return;
+
+  // 禁用点击
+  potWrapper.classList.add('disabled');
+
+  // 摇签动画
+  potWrapper.classList.add('shaking');
+
+  // 随机选一根签飞出去
+  const sticks = document.querySelectorAll('.stick');
+  const activeIdx = Math.floor(Math.random() * sticks.length);
+  sticks[activeIdx].classList.add('stick-active');
+
+  // 动画结束后显示签文
+  setTimeout(() => {
+    potWrapper.classList.remove('shaking');
+    sticks[activeIdx].classList.remove('stick-active');
+
+    // 生成运势
+    const fortune = getTodayFortune();
+    const today = getTodayKey();
+    const prev = localStorage.getItem(STORAGE_KEY);
+    const stored = prev ? JSON.parse(prev) : {};
+    const count = (stored.count || 0) + 1;
+
+    // 保存
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      date: today,
+      fortune: fortune,
+      count: count
+    }));
+
+    // 显示
+    showFortune(fortune, count);
+
+    // 隐藏签筒提示
+    potWrapper.classList.add('already-drawn');
+    hintText.style.display = 'none';
+  }, 1200);
+}
+
+// ===== 检查今日是否已抽 =====
+function checkToday() {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (!stored) return false;
+
+  try {
+    const data = JSON.parse(stored);
+    if (data.date === getTodayKey()) {
+      // 已抽过，直接显示
+      potWrapper.classList.add('disabled', 'already-drawn');
+      hintText.style.display = 'none';
+      alreadyMsg.classList.add('visible');
+      showFortune(data.fortune, data.count || '?');
+      return true;
+    }
+  } catch(e) {}
+
+  return false;
+}
+
+// ===== 重置（仅供测试）=====
+resetBtn.addEventListener('click', () => {
+  localStorage.removeItem(STORAGE_KEY);
+  location.reload();
+});
+
+// ===== 初始化 =====
+if (!checkToday()) {
+  potWrapper.addEventListener('click', drawLot);
+}
+
+// ===== 显示重置按钮（双击标题触发）=====
+document.querySelector('.header-title').addEventListener('dblclick', () => {
+  resetBtn.style.display = resetBtn.style.display === 'inline-block' ? 'none' : 'inline-block';
+});
+</script>
+</body>
+</html>

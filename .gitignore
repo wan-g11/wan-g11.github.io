@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Hexo generated
+db.json
+public/
+.deploy*/
+_multiconfig.yml
+blogInfoList.json
+
+# hexo-pro runtime data
+data/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Tool directories
+.claude/
+.workbuddy/

@@ -1,0 +1,5 @@
+/* 毛玻璃效果 */
+#board {
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+}

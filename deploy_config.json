@@ -1,0 +1,20 @@
+{
+  "repository": "wan-g11/wan-g11.github.io",
+  "branch": "main",
+  "message": "Site updated: {{ now(\"YYYY-MM-DD HH:mm:ss\") }}",
+  "enabledPlatforms": [
+    "github"
+  ],
+  "cloudflare": {
+    "accountId": "",
+    "projectName": "",
+    "apiToken": ""
+  },
+  "edgeone": {
+    "projectName": "",
+    "apiToken": "",
+    "env": "production"
+  },
+  "deployType": "github",
+  "lastDeployTime": "2026-04-15T15:36:41.752Z"
+}
