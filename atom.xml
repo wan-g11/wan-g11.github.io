@@ -10,7 +10,7 @@
   <rights>All rights reserved 2026, wan_g</rights>
   <subtitle>分享一些东西</subtitle>
   <title>wan_g</title>
-  <updated>2026-07-17T05:52:33.285Z</updated>
+  <updated>2026-07-17T05:57:10.734Z</updated>
   <entry>
     <author>
       <name>wan_g</name>
@@ -18,7 +18,7 @@
     <category term="技术" scheme="https://wange.me/categories/%E6%8A%80%E6%9C%AF/"/>
     <category term="学习" scheme="https://wange.me/tags/%E5%AD%A6%E4%B9%A0/"/>
     <content>
-      <![CDATA[<h2 id="cli常用命令"><a href="#cli常用命令" class="headerlink" title="cli常用命令"></a>cli常用命令</h2><h3 id="linux终端常用命令"><a href="#linux终端常用命令" class="headerlink" title="linux终端常用命令"></a>linux终端常用命令</h3><h2 id="分隔符以-为主pwd-查看当前路径cd-去某个路径下touch-创建某个文件makir-创建某个文件夹ls-和ls-la-列出当前目录下的文件（-la有隐藏文件）rm-删除vim-编辑器，里面用i（insert），esc退出编辑-wq（write-and-quit）nano-查看内容，也可编辑cat-查看内容truncate-剪切open-打开文件夹或文件，open-代表打开当前文件夹（-代表当前文件夹）clear-清理终端记录code-用vscode打开文件mv-旧文件名-新文件名-（改名-同时也可以移动）"><a href="#分隔符以-为主pwd-查看当前路径cd-去某个路径下touch-创建某个文件makir-创建某个文件夹ls-和ls-la-列出当前目录下的文件（-la有隐藏文件）rm-删除vim-编辑器，里面用i（insert），esc退出编辑-wq（write-and-quit）nano-查看内容，也可编辑cat-查看内容truncate-剪切open-打开文件夹或文件，open-代表打开当前文件夹（-代表当前文件夹）clear-清理终端记录code-用vscode打开文件mv-旧文件名-新文件名-（改名-同时也可以移动）" class="headerlink" title="分隔符以&#x2F;为主pwd  查看当前路径cd  去某个路径下touch 创建某个文件makir  创建某个文件夹ls 和ls - la 列出当前目录下的文件（-la有隐藏文件）rm 删除vim 编辑器，里面用i（insert），esc退出编辑:wq（write and quit）nano 查看内容，也可编辑cat 查看内容truncate 剪切open 打开文件夹或文件，open .&#x2F;代表打开当前文件夹（.代表当前文件夹）clear 清理终端记录code 用vscode打开文件mv 旧文件名 新文件名 （改名,同时也可以移动）"></a>分隔符以&#x2F;为主<br>pwd  查看当前路径<br>cd  去某个路径下<br>touch 创建某个文件<br>makir  创建某个文件夹<br>ls 和ls - la 列出当前目录下的文件（-la有隐藏文件）<br>rm 删除<br>vim 编辑器，里面用i（insert），esc退出编辑:wq（write and quit）<br>nano 查看内容，也可编辑<br>cat 查看内容<br>truncate 剪切<br>open 打开文件夹或文件，open .&#x2F;代表打开当前文件夹（.代表当前文件夹）<br>clear 清理终端记录<br>code 用vscode打开文件<br>mv 旧文件名 新文件名 （改名,同时也可以移动）</h2><h3 id="powershell命令差不多，需要用到再查"><a href="#powershell命令差不多，需要用到再查" class="headerlink" title="powershell命令差不多，需要用到再查"></a>powershell命令差不多，需要用到再查</h3><hr><p>##开发需要了解的互联网名词<br>输入网址(url)-&gt;浏览器查ip-&gt;DNS解析域名为ip发给浏览器-&gt;浏览器根据ip找到服务器并通过端口连接对应服务（nginx在服务器上面进行管理转发）-&gt;服务器收到请求并response网页内容返回给浏览器-&gt;浏览器显示网页<br>###服务器<br>上面可以放想被查看的内容，就相当于一台电脑持续开机放到公网上<br>###ip地址<br>ip地址定位互联网上一台设备<br>ABCD类地址和私有地址啥的暂时不过多介绍<br>###域名<br>aad.com 啥的，方便他人记忆输入，用DNS解析域名变为ip地址，访问域名本质访问ip<br>###端口<br>端口对应了服务器下不同服务的入口<br>eg：域名:80，http默认端口号80，https默认443，<br>###访问错误<br>回答：访问不到域名需要进行故障排查</p><ol><li>域名解析问题：包括输入错误，dns 解析失败，域名过期</li><li>网络不稳定：网络断开，防火墙，网络审查</li><li>服务器端问题：死机，流量暴增，正被攻击</li><li>端口问题：网线更换了非常见端口<br>解决方案：</li><li>换个网站</li><li>换个设备</li><li>看浏览器提示</li><li>开启无痕浏览</li></ol>]]>
+      <![CDATA[<h2 id="cli常用命令"><a href="#cli常用命令" class="headerlink" title="cli常用命令"></a>cli常用命令</h2><h3 id="linux终端常用命令"><a href="#linux终端常用命令" class="headerlink" title="linux终端常用命令"></a>linux终端常用命令</h3><p>分隔符以&#x2F;为主</p><p>pwd  查看当前路径</p><p>cd  去某个路径下</p><p>touch 创建某个文件</p><p>makir  创建某个文件夹</p><p>ls 和ls - la 列出当前目录下的文件（-la有隐藏文件）</p><p>rm 删除</p><p>vim 编辑器，里面用i（insert），esc退出编辑:wq（write and quit）</p><p>nano 查看内容，也可编辑</p><p>cat 查看内容</p><p>truncate 剪切</p><p>open 打开文件夹(用浏览器打开文件)，open .&#x2F;代表打开当前文件夹（.代表当前文件夹）</p><p>clear 清理终端记录</p><p>code 用vscode打开文件</p><p>mv 旧文件名 新文件名 （改名,同时也可以移动）</p><h3 id="powershell命令差不多，需要用到再查"><a href="#powershell命令差不多，需要用到再查" class="headerlink" title="powershell命令差不多，需要用到再查"></a>powershell命令差不多，需要用到再查</h3><hr><h2 id="开发需要了解的互联网名词"><a href="#开发需要了解的互联网名词" class="headerlink" title="开发需要了解的互联网名词"></a>开发需要了解的互联网名词</h2><p>输入网址(url)-&gt;浏览器查ip-&gt;DNS解析域名为ip发给浏览器-&gt;浏览器根据ip找到服务器并通过端口连接对应服务（nginx在服务器上面进行管理转发）-&gt;服务器收到请求并response网页内容返回给浏览器-&gt;浏览器显示网页</p><h3 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h3><p>上面可以放想被查看的内容，就相当于一台电脑持续开机放到公网上</p><h3 id="ip地址"><a href="#ip地址" class="headerlink" title="ip地址"></a>ip地址</h3><p>ip地址定位互联网上一台设备<br>ABCD类地址和私有地址啥的暂时不过多介绍</p><h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><p>aad.com 啥的，方便他人记忆输入，用DNS解析域名变为ip地址，访问域名本质访问ip</p><h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p>端口对应了服务器下不同服务的入口<br>eg：域名:80，http默认端口号80，https默认443，</p><h3 id="访问错误"><a href="#访问错误" class="headerlink" title="访问错误"></a>访问错误</h3><p>回答：访问不到域名需要进行故障排查</p><ol><li>域名解析问题：包括输入错误，dns 解析失败，域名过期</li><li>网络不稳定：网络断开，防火墙，网络审查</li><li>服务器端问题：死机，流量暴增，正被攻击</li><li>端口问题：网线更换了非常见端口<br>解决方案：</li><li>换个网站</li><li>换个设备</li><li>看浏览器提示</li><li>开启无痕浏览</li></ol>]]>
     </content>
     <id>https://wange.me/2026/07/16/ai%E6%97%B6%E4%BB%A3%E7%9A%84%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</id>
     <link href="https://wange.me/2026/07/16/ai%E6%97%B6%E4%BB%A3%E7%9A%84%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
@@ -27,7 +27,7 @@
       <![CDATA[<h2 id="cli常用命令"><a href="#cli常用命令" class="headerlink" title="cli常用命令"></a>cli常用命令</h2><h3 id="linux终端常用命令"><a href="#linux终端常用命令" class="he]]>
     </summary>
     <title>ai时代基础的学习</title>
-    <updated>2026-07-17T05:52:33.285Z</updated>
+    <updated>2026-07-17T05:57:10.734Z</updated>
   </entry>
   <entry>
     <author>
