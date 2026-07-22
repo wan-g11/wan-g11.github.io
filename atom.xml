@@ -10,7 +10,79 @@
   <rights>All rights reserved 2026, wan_g</rights>
   <subtitle>分享一些东西</subtitle>
   <title>wan_g</title>
-  <updated>2026-07-17T05:57:10.734Z</updated>
+  <updated>2026-07-22T14:29:17.302Z</updated>
+  <entry>
+    <author>
+      <name>wan_g</name>
+    </author>
+    <category term="技术" scheme="https://wange.me/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="学习" scheme="https://wange.me/categories/%E6%8A%80%E6%9C%AF/%E5%AD%A6%E4%B9%A0/"/>
+    <content>
+      <![CDATA[<p>ssh连接服务器，服务器上安装git，然后生成key（会在.ssh)<br>添加这个key到github的个人的ssh啥的那里，最后服务器连接github，<br>ssh -T 啥的就可以进行git的基本操作了<br>nginx文件夹里面的nginx.conf是唯一入口，启动的时候会调用</p>]]>
+    </content>
+    <id>https://wange.me/2026/07/22/nginx%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
+    <link href="https://wange.me/2026/07/22/nginx%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <published>2026-07-22T14:27:22.000Z</published>
+    <summary>
+      <![CDATA[<p>ssh连接服务器，服务器上安装git，然后生成key（会在.ssh)<br>添加这个key到github的个人的ssh啥的那里，最后服务器连接github，<br>ssh -T 啥的就可以进行git的基本操作了<br>nginx文件夹里面的nginx.conf是唯一入口，启]]>
+    </summary>
+    <title>nginx与服务器</title>
+    <updated>2026-07-22T14:29:17.302Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>wan_g</name>
+    </author>
+    <category term="技术" scheme="https://wange.me/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="学习" scheme="https://wange.me/categories/%E6%8A%80%E6%9C%AF/%E5%AD%A6%E4%B9%A0/"/>
+    <content>
+      <![CDATA[<p>JS内核在浏览器里面运行<br>.html里面由HTML和CSS和JS组成<br>HTML<body>里的标签内容和结构：页面上有什么东西，怎么组织<br>CSS<style> 块样式和外观：这些东西长什么样<br>JavaScript<script> 块行为和交互：发生了什么事，应该做什么<br><a href="https://www.w3school.com.cn/html/index.asp">https://www.w3school.com.cn/html/index.asp</a><br>有教程但是能看懂就行</p><p>未完待续...</p>]]>
+    </content>
+    <id>https://wange.me/2026/07/22/HTML%E5%92%8CCSS%E5%92%8CJS%E5%9F%BA%E6%9C%AC%E4%BD%9C%E7%94%A8/</id>
+    <link href="https://wange.me/2026/07/22/HTML%E5%92%8CCSS%E5%92%8CJS%E5%9F%BA%E6%9C%AC%E4%BD%9C%E7%94%A8/"/>
+    <published>2026-07-22T14:24:45.000Z</published>
+    <summary>
+      <![CDATA[<p>JS内核在浏览器里面运行<br>.html里面由HTML和CSS和JS组成<br>HTML	<body>里的标签	内容和结构：页面上有什么东西，怎么组织<br>CSS	<style> 块	样式和外观：这些东西长什么样<br>JavaScript	<script> 块	行为和]]>
+    </summary>
+    <title>HTML和CSS和JS基本作用</title>
+    <updated>2026-07-22T14:29:08.531Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>wan_g</name>
+    </author>
+    <category term="技术" scheme="https://wange.me/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="学习" scheme="https://wange.me/categories/%E6%8A%80%E6%9C%AF/%E5%AD%A6%E4%B9%A0/"/>
+    <content>
+      <![CDATA[<h1 id="Funtion-Calling"><a href="#Funtion-Calling" class="headerlink" title="Funtion Calling"></a>Funtion Calling</h1><p><strong>llm 是概率预测器，负责识别意图和决策生成输出结构化指令 &lt;–&gt; 大脑，不执行本地代码</strong></p><h2 id="Funtion-Calling（四肢）"><a href="#Funtion-Calling（四肢）" class="headerlink" title="Funtion Calling（四肢）"></a>Funtion Calling（四肢）</h2><p><strong>def:执行本地代码，负责工具调用和执行，完成实际逻辑</strong></p><h3 id="标准执行生命周期"><a href="#标准执行生命周期" class="headerlink" title="标准执行生命周期"></a>标准执行生命周期</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[&quot;1️⃣ 输入构建&lt;br/&gt;用户提问</span><br><span class="line">    给出系统有的api工具列表</span><br><span class="line">    JSON Schema(llm回复标准结构)&quot;]</span><br><span class="line">    B[&quot;2️⃣ 意图与参数生成&lt;br/&gt;LLM 发现无法回答，转而输出 Function + JSON&quot;]</span><br><span class="line">    C[&quot;3️⃣ 本地代码解析json&lt;br/&gt;调用真实数据库 / API&quot;]</span><br><span class="line">    D[&quot;4️⃣ 结果回传&lt;br/&gt;Tool Result → LLM&quot;]</span><br><span class="line">    E[&quot;5️⃣ LLM最终生成&lt;br/&gt;自然语言回答&quot;]</span><br><span class="line"></span><br><span class="line">    A --&gt; B --&gt; C --&gt; D --&gt; E</span><br><span class="line"></span><br><span class="line">    style A fill:#E3F2FD,stroke:#2196F3</span><br><span class="line">    style B fill:#E8F5E9,stroke:#4CAF50</span><br><span class="line">    style C fill:#FFF3E0,stroke:#FF9800</span><br><span class="line">    style D fill:#F3E5F5,stroke:#9C27B0</span><br><span class="line">    style E fill:#E0F7FA,stroke:#0097A7</span><br></pre></td></tr></table></figure><p><strong>但是模型为啥会给出标准合适的 json 呢</strong></p><ul><li>指令微调:模型训练用了海量的函数调用训练集，教会模型使用工具和遵守 schema 规范的格式生成结果</li><li>推理约束解码:底层引擎集成 FSM 和正则表达式机制，在逐个生成 Token 时，会拦截不符合语法树的 Token。</li></ul><h3 id="生产环境避坑指南（难点与解决方案）"><a href="#生产环境避坑指南（难点与解决方案）" class="headerlink" title="生产环境避坑指南（难点与解决方案）"></a>生产环境避坑指南（难点与解决方案）</h3><table><thead><tr><th>难点</th><th>问题描述</th><th>解决方案</th></tr></thead><tbody><tr><td><strong>难点一：幻觉调用（Hallucination）</strong></td><td>模型凭空捏造不存在的函数，或胡乱修改参数名。</td><td><strong>Self-Correction</strong> 机制：将错误信息喂回给模型，让其自省并修正输出。</td></tr><tr><td><strong>难点二：JSON 格式崩溃</strong></td><td>输出包含多余符号、缺失括号等，导致 JSON 无法解析。</td><td>使用<strong>json_repair</strong> 容错解析器，并强制开启 <strong>JSON Mode</strong> 输出。</td></tr><tr><td><strong>难点三：工具数量爆炸</strong></td><td>API 数量过多，超出上下文窗口，导致注意力分散、调用错误。</td><td><strong>Tool Retrieval</strong>：结合 <strong>RAG</strong> 动态检索最相关的 Top-K 工具（如 Top-5）进行注入。</td></tr><tr><td><strong>难点四：多步依赖调用</strong></td><td>下一步 API 调用依赖于上一步执行结果，需要连续规划。</td><td>使用<strong>Agent 编排框架</strong>（如 ReAct），实现 <strong>Thought → Action → Observation</strong> 循环。</td></tr></tbody></table>]]>
+    </content>
+    <id>https://wange.me/2026/07/22/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%80%9F%E9%80%9AFuntion-Calling/</id>
+    <link href="https://wange.me/2026/07/22/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%80%9F%E9%80%9AFuntion-Calling/"/>
+    <published>2026-07-22T14:23:38.000Z</published>
+    <summary>
+      <![CDATA[<h1 id="Funtion-Calling"><a href="#Funtion-Calling" class="headerlink" title="Funtion Calling"></a>Funtion Calling</h1><p><strong>llm 是概率预测器]]>
+    </summary>
+    <title>大模型速通Funtion Calling</title>
+    <updated>2026-07-22T14:28:27.795Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>wan_g</name>
+    </author>
+    <category term="技术" scheme="https://wange.me/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="学习" scheme="https://wange.me/categories/%E6%8A%80%E6%9C%AF/%E5%AD%A6%E4%B9%A0/"/>
+    <content>
+      <![CDATA[<h1 id="RAG-向量库"><a href="#RAG-向量库" class="headerlink" title="RAG 向量库"></a>RAG 向量库</h1><h2 id="01-多源数据清洗与预处理"><a href="#01-多源数据清洗与预处理" class="headerlink" title="01.多源数据清洗与预处理"></a>01.多源数据清洗与预处理</h2><p>将非结构化的文档转为干净标准纯文本，包括 ocr 识别，噪声剔除（广告&#x2F;页眉页角）及元数据（Metadata）提取<br><code>Unstructured-&gt;``Layout(布局) Analysis-&gt;``Markdown 转换</code></p><p><strong>提取标题 时间 分类等作为元数据，为后续“条件过滤查询”打基础</strong></p><h2 id="02-智能分片（chunking）"><a href="#02-智能分片（chunking）" class="headerlink" title="02.智能分片（chunking）"></a>02.智能分片（chunking）</h2><p>解决长文本超过 Embedding 模型窗口限制及语义碎片化问题，不能语义断裂所以不固定长度<br><strong>一般是递归切分 <code>Recursive Split</code> <code>语义段落切分</code> <code>滑窗重叠(上下文缓冲)</code></strong><br>采用 small-to-big 架构，存储小块用于检索，检索出来的父块（大）用于 LLM 生成上下文</p><ul><li><strong>Recursive Split</strong>：分层递归切割，优先在自然分隔点拆分文本</li><li><strong>语义段落切分</strong>：遵循语义边界分块，保障片段逻辑完整</li><li><strong>滑窗重叠</strong>：切片预留重叠缓冲区，防止上下文断裂丢失信息</li></ul><h2 id="03-高维向量化-Embedding"><a href="#03-高维向量化-Embedding" class="headerlink" title="03. 高维向量化 (Embedding)"></a>03. 高维向量化 (Embedding)</h2><p>将文本转化为计算机可理解的数学向量。选择合适的 Embedding 模型决定了语义空间的相关性。</p><p><code>双塔模型``BGE-M3 / m3e``Batch Processing</code></p><p>💡🚀 <strong>性能优化：</strong> 针对特定行业语料进行微调 (Fine-tuning)，并使用批处理接口显著提升入库吞吐量。</p><ul><li><strong>双塔模型</strong>：主流 Embedding 网络架构，分别编码【查询文本】和【知识库文档文本】，适合向量检索场景；</li><li><strong>BGE-M3&#x2F;m3e</strong>：当下中文场景最常用的开源 Embedding 模型，支持稠密向量、稀疏向量、多向量混合检索；对不同场景要微调</li><li><strong>Batch Processing（批处理）</strong>：不要单条文本依次调用模型，批量送入 Embedding 模型推理，大幅提升文档向量化入库速度。</li></ul><h2 id="04-向量存储与索引构建"><a href="#04-向量存储与索引构建" class="headerlink" title="04. 向量存储与索引构建"></a>04. 向量存储与索引构建</h2><p>将向量及对应的原始文本、元数据存入专用向量数据库，构建高效查询索引。</p><p><code>HNSW 索引``IVF_PQ``向量数据库</code></p><p>⚙️ <strong>工程挑战：</strong> 大规模数据下选择 HNSW 索引权衡检索速度与精度，并实现多租户数据隔离。</p><ul><li>向量数据库：支持基于语义相似度检索，不局限于精确关键词匹配。</li><li>HNSW：主流索引策略，平衡速度与高召回精度，中小企业知识库首选。</li><li>IVF_PQ：向量压缩方案，适合亿级超大向量规模，以小幅精度损耗换取更低硬件开销。</li></ul><h2 id="05-检索增强与验证-Optimization"><a href="#05-检索增强与验证-Optimization" class="headerlink" title="05. 检索增强与验证 (Optimization)"></a>05. 检索增强与验证 (Optimization)</h2><p>入库后的最后一步是闭环验证。通过混合检索和重排序提升最终召回质量。</p><p><code>Hybrid Search``Rerank 重排序``HyDE 虚拟文档</code></p><p>🎯 <strong>效果突围：</strong> 引入 Reranker 模型对 Top-50 结果进行精排，彻底解决 “语义相近但事实错误” 的痛点。</p><ul><li><strong>*Hybrid Search</strong>：关键词 + 向量检索融合，兼顾精准词与语义匹配</li><li><strong>*Rerank 重排序</strong>：粗筛后精细打分，过滤看似相近实则无关的文档</li><li><strong>*HyDE 虚拟文档</strong>：ai 生成模拟答案辅助检索，提升短问句召回质量</li></ul><p><strong>数据决定模型表现的下限，工程能力-&gt; 这一整套决定上限</strong></p><table><thead><tr><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td>🔨</td><td><strong>精细化预处理</strong></td><td>垃圾入，垃圾出。数据质量是 RAG 系统的天花板。</td><td></td></tr><tr><td>🔗</td><td><strong>上下文保持</strong></td><td>利用父子块和重叠机制，守住知识的语义完整性。</td><td></td></tr><tr><td>📈</td><td><strong>工程化闭环</strong></td><td>通过混合检索与重排序，实现工业级的召回精度。</td><td></td></tr></tbody></table>]]>
+    </content>
+    <id>https://wange.me/2026/07/22/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%80%9F%E9%80%9ARAG/</id>
+    <link href="https://wange.me/2026/07/22/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%80%9F%E9%80%9ARAG/"/>
+    <published>2026-07-22T14:22:46.000Z</published>
+    <summary>
+      <![CDATA[<h1 id="RAG-向量库"><a href="#RAG-向量库" class="headerlink" title="RAG 向量库"></a>RAG 向量库</h1><h2 id="01-多源数据清洗与预处理"><a href="#01-多源数据清洗与预处理" class]]>
+    </summary>
+    <title>大模型速通RAG</title>
+    <updated>2026-07-22T14:28:18.992Z</updated>
+  </entry>
   <entry>
     <author>
       <name>wan_g</name>
@@ -27,7 +99,7 @@
       <![CDATA[<h2 id="cli常用命令"><a href="#cli常用命令" class="headerlink" title="cli常用命令"></a>cli常用命令</h2><h3 id="linux终端常用命令"><a href="#linux终端常用命令" class="he]]>
     </summary>
     <title>ai时代基础的学习</title>
-    <updated>2026-07-17T05:57:10.734Z</updated>
+    <updated>2026-07-22T14:28:12.544Z</updated>
   </entry>
   <entry>
     <author>

@@ -1,16 +1,31 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>关于我 | wan_g</title><meta name="author" content="wan_g"><meta name="copyright" content="wan_g"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="👋 你好呀我是 wan_g，一名热爱技术 &amp; 生活的普通人。 欢迎来到我的个人博客，这里主要分享一些技术笔记、学习心得和生活感悟。希望这些内容能对你有所帮助，也欢迎大家交流讨论 🚀 💻 编程 🎨 设计 📝 写作 🚀 折腾     📌 个人简介 🔭 目标： 💬 领域： 🌱 正在学习：   🎯 技能栈     前端 后端    （空） （空）      DevOps 工具">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="https://wange.me/about/index.html">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>nginx与服务器 | wan_g</title><meta name="author" content="wan_g"><meta name="copyright" content="wan_g"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ssh连接服务器，服务器上安装git，然后生成key（会在.ssh)添加这个key到github的个人的ssh啥的那里，最后服务器连接github，ssh -T 啥的就可以进行git的基本操作了nginx文件夹里面的nginx.conf是唯一入口，启动的时候会调用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nginx与服务器">
+<meta property="og:url" content="https://wange.me/2026/07/22/nginx%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
 <meta property="og:site_name" content="wan_g">
-<meta property="og:description" content="👋 你好呀我是 wan_g，一名热爱技术 &amp; 生活的普通人。 欢迎来到我的个人博客，这里主要分享一些技术笔记、学习心得和生活感悟。希望这些内容能对你有所帮助，也欢迎大家交流讨论 🚀 💻 编程 🎨 设计 📝 写作 🚀 折腾     📌 个人简介 🔭 目标： 💬 领域： 🌱 正在学习：   🎯 技能栈     前端 后端    （空） （空）      DevOps 工具">
+<meta property="og:description" content="ssh连接服务器，服务器上安装git，然后生成key（会在.ssh)添加这个key到github的个人的ssh啥的那里，最后服务器连接github，ssh -T 啥的就可以进行git的基本操作了nginx文件夹里面的nginx.conf是唯一入口，启动的时候会调用">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://wange.me/img/avatar.png">
-<meta property="article:published_time" content="2026-04-13T13:09:17.000Z">
-<meta property="article:modified_time" content="2026-04-17T07:20:22.535Z">
+<meta property="article:published_time" content="2026-07-22T14:27:22.000Z">
+<meta property="article:modified_time" content="2026-07-22T14:29:17.302Z">
 <meta property="article:author" content="wan_g">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://wange.me/img/avatar.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://wange.me/about/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+<meta name="twitter:image" content="https://wange.me/img/avatar.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "nginx与服务器",
+  "url": "https://wange.me/2026/07/22/nginx%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/",
+  "image": "https://wange.me/img/avatar.png",
+  "datePublished": "2026-07-22T14:27:22.000Z",
+  "dateModified": "2026-07-22T14:29:17.302Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "wan_g",
+      "url": "https://wange.me"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://wange.me/2026/07/22/nginx%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
     (() => {
       
     const saveToLocal = {
@@ -146,10 +161,10 @@ btf.addGlobalFn('pjaxComplete', () => {
   },
   autoDarkmode: false
 }</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '关于我',
+  title: 'nginx与服务器',
   isHighlightShrink: false,
   isToc: false,
-  pageType: 'about'
+  pageType: 'post'
 }</script><link rel="stylesheet" href="/css/snow.css"><link rel="stylesheet" href="/css/custom.css"><script src="/js/snow.js"></script><script>
 /**
  * 1. 基础状态管理
@@ -385,89 +400,8 @@ setTimeout(function() {
   }
 </style>
 <meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="wan_g" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fas fa-history"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0)"><i class="fa-fw fas fa-snowflake"></i><span> 雪</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0)"><i class="fa-fw fas fa-moon"></i><span> 夜</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(/images/blog.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fas fa-history"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0)"><i class="fa-fw fas fa-snowflake"></i><span> 雪</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0)"><i class="fa-fw fas fa-moon"></i><span> 夜</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">关于我</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><h2 id="👋-你好呀"><a href="#👋-你好呀" class="headerlink" title="👋 你好呀"></a>👋 你好呀</h2><p>我是 <strong>wan_g</strong>，一名热爱技术 &amp; 生活的普通人。</p>
-<p>欢迎来到我的个人博客，这里主要分享一些技术笔记、学习心得和生活感悟。希望这些内容能对你有所帮助，也欢迎大家交流讨论 🚀</p>
-<a class="btn-beautify " href="#" title="💻 编程"><i class="blue"></i><span>💻 编程</span></a>
-<a class="btn-beautify " href="#" title="🎨 设计"><i class="purple"></i><span>🎨 设计</span></a>
-<a class="btn-beautify " href="#" title="📝 写作"><i class="green"></i><span>📝 写作</span></a>
-<a class="btn-beautify " href="#" title="🚀 折腾"><i class="orange"></i><span>🚀 折腾</span></a>
-
-<!-- 分割线 -->
-
-<hr>
-<h2 id="📌-个人简介"><a href="#📌-个人简介" class="headerlink" title="📌 个人简介"></a>📌 个人简介</h2><ul>
-<li>🔭 <strong>目标：</strong></li>
-<li>💬 <strong>领域：</strong></li>
-<li>🌱 <strong>正在学习：</strong></li>
-</ul>
-<hr>
-<h2 id="🎯-技能栈"><a href="#🎯-技能栈" class="headerlink" title="🎯 技能栈"></a>🎯 技能栈</h2><div class="skills-grid">
-
-<table>
-<thead>
-<tr>
-<th align="center">前端</th>
-<th align="center">后端</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">（空）</td>
-<td align="center">（空）</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="center">DevOps</th>
-<th align="center">工具</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">（空）</td>
-<td align="center">（空）</td>
-</tr>
-</tbody></table>
-</div>
-
-<hr>
-<h2 id="🔗-友链"><a href="#🔗-友链" class="headerlink" title="🔗 友链"></a>🔗 友链</h2><blockquote>
-<p>🪄 暂无友链，期待与志同道合的朋友交换链接 😊</p>
-</blockquote>
-<hr>
-<h2 id="📬-联系方式"><a href="#📬-联系方式" class="headerlink" title="📬 联系方式"></a>📬 联系方式</h2><ul>
-<li><i class="fab fa-github"></i> <a target="_blank" rel="noopener" href="https://github.com/wan-g11">GitHub</a></li>
-<li><i class="fas fa-envelope"></i> <a href="mailto:">邮箱</a></li>
-<li><i class="fab fa-bilibili"></i> <a target="_blank" rel="noopener" href="https://space.bilibili.com/3537111112222749">B站</a></li>
-</ul>
-</div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">wan_g</div><div class="author-info-description">分享一些东西</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://space.bilibili.com/3537111112222749" target="_blank" title="B站"><i class="fab fa-bilibili" style="color: #00a1d6;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">分享一些东西</div></div><div class="sticky_layout"><div class="card-widget card-archives">
-    <div class="item-headline">
-      <i class="fas fa-archive"></i>
-      <span>归档</span>
-      
-    </div>
-  
-    <ul class="card-archive-list">
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2026/07/">
-            <span class="card-archive-list-date">
-              七月 2026
-            </span>
-            <span class="card-archive-list-count">6</span>
-          </a>
-        </li>
-      
-        <li class="card-archive-list-item">
-          <a class="card-archive-list-link" href="/archives/2026/04/">
-            <span class="card-archive-list-date">
-              四月 2026
-            </span>
-            <span class="card-archive-list-count">3</span>
-          </a>
-        </li>
-      
-    </ul>
-  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">9</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-07-22T14:29:40.255Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By wan_g</span></div><div class="footer_custom_text"><div id="runtime" style="font-size: 0.85rem"><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><script src="/js/duration.js"></script></div></div></div><script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fas fa-history"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0)"><i class="fa-fw fas fa-snowflake"></i><span> 雪</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0)"><i class="fa-fw fas fa-moon"></i><span> 夜</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/blog.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"></a><a class="nav-page-title" href="/"><span class="site-name">nginx与服务器</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fas fa-comment"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/timeline/"><i class="fa-fw fas fa-history"></i><span> 日志</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0)"><i class="fa-fw fas fa-snowflake"></i><span> 雪</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0)"><i class="fa-fw fas fa-moon"></i><span> 夜</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">nginx与服务器</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-07-22T14:27:22.000Z" title="发表于 2026-07-22 22:27:22">2026-07-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-22T14:29:17.302Z" title="更新于 2026-07-22 22:29:17">2026-07-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>ssh连接服务器，服务器上安装git，然后生成key（会在.ssh)<br>添加这个key到github的个人的ssh啥的那里，最后服务器连接github，<br>ssh -T 啥的就可以进行git的基本操作了<br>nginx文件夹里面的nginx.conf是唯一入口，启动的时候会调用</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://wange.me">wan_g</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://wange.me/2026/07/22/nginx%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/">https://wange.me/2026/07/22/nginx%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://wange.me" target="_blank">wan_g</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/avatar.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/07/22/HTML%E5%92%8CCSS%E5%92%8CJS%E5%9F%BA%E6%9C%AC%E4%BD%9C%E7%94%A8/" title="HTML和CSS和JS基本作用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">HTML和CSS和JS基本作用</div></div><div class="info-2"><div class="info-item-1">JS内核在浏览器里面运行.html里面由HTML和CSS和JS组成HTML	里的标签	内容和结构：页面上有什么东西，怎么组织CSS	 块	样式和外观：这些东西长什么样JavaScript	 块	行为和交互：发生了什么事，应该做什么https://www.w3school.com.cn/html/index.asp有教程但是能看懂就行 未完待续... </div></div></div></a></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">wan_g</div><div class="author-info-description">分享一些东西</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><div class="card-info-social-icons"><a class="social-icon" href="https://space.bilibili.com/3537111112222749" target="_blank" title="B站"><i class="fab fa-bilibili" style="color: #00a1d6;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">分享一些东西</div></div><div class="sticky_layout"></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By wan_g</span></div><div class="footer_custom_text"><div id="runtime" style="font-size: 0.85rem"><span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span><script src="/js/duration.js"></script></div></div></div><script src="https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({
   model: {
     jsonPath: 'https://unpkg.com/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json',
     scale: 1
@@ -487,7 +421,7 @@ setTimeout(function() {
     opacityDefault: 0.8,
     opacityOnHover: 0.5
   }
-});</script></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+});</script></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
   const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
   const option = null
 

@@ -2,9 +2,45 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wange.me/2026/07/22/nginx%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    
+    <lastmod>2026-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wange.me/2026/07/22/HTML%E5%92%8CCSS%E5%92%8CJS%E5%9F%BA%E6%9C%AC%E4%BD%9C%E7%94%A8/</loc>
+    
+    <lastmod>2026-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wange.me/2026/07/22/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%80%9F%E9%80%9AFuntion-Calling/</loc>
+    
+    <lastmod>2026-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wange.me/2026/07/22/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E9%80%9F%E9%80%9ARAG/</loc>
+    
+    <lastmod>2026-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://wange.me/2026/07/16/ai%E6%97%B6%E4%BB%A3%E7%9A%84%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</loc>
     
-    <lastmod>2026-07-17</lastmod>
+    <lastmod>2026-07-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -190,6 +226,13 @@
   
   <url>
     <loc>https://wange.me/categories/%E8%BD%AC%E4%B8%93%E4%B8%9A/%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://wange.me/categories/%E6%8A%80%E6%9C%AF/%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
