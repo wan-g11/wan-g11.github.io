@@ -16,3 +16,33 @@
     margin: 8px 0;
     object-fit: cover;
 }
+
+.shuoshuo-content .shuoshuo-photo-set {
+    display: grid;
+    gap: 16px;
+    min-width: 0;
+}
+
+.shuoshuo-content .shuoshuo-photo-set a {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    line-height: 0;
+}
+
+.shuoshuo-content .shuoshuo-photo-set img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    margin: 0;
+    object-fit: contain;
+}
+
+.shuoshuo-content .shuoshuo-photo-wide { width: 100%; }
+.shuoshuo-content .shuoshuo-photo-portrait { width: 216px; }
+
+.shuoshuo-content .shuoshuo-photo-set a:focus-visible {
+    outline: 2px solid var(--btn-bg);
+    outline-offset: 4px;
+}

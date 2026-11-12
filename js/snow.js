@@ -1,1 +1,95 @@
-(()=>{var n,i,o=[],t=()=>"on"===localStorage.getItem("snow");function s(){document.getElementById("snow-container")?n=document.getElementById("snow-container"):((n=document.createElement("div")).id="snow-container",n.style.cssText="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;overflow:hidden;display:none;",document.body.appendChild(n))}function a(){this.element=document.createElement("div"),this.element.textContent="❆",this.element.style.cssText="position:absolute;color:#fff;font-size:"+(10*Math.random()+10)+"px;opacity:"+Math.random()+";user-select:none;",this.x=Math.random()*window.innerWidth,this.y=Math.random()*-window.innerHeight,this.speed=2*Math.random()+1,this.wind=+Math.random()-.5,this.element.style.left=this.x+"px",this.element.style.top=this.y+"px",n.appendChild(this.element)}function e(){if(n||s(),!i){n.style.display="block",n.innerHTML="",o=[];for(var t=0;t<80;t++){var e=document.createElement("div");e.style.cssText="position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:"+Math.random()+";animation:twinkle "+(3*Math.random()+2)+"s infinite;",e.style.left=100*Math.random()+"%",e.style.top=60*Math.random()+"%",n.appendChild(e)}for(t=0;t<50;t++)o.push(new a);!function t(){for(var e=0;e<o.length;e++)o[e].update();i=requestAnimationFrame(t)}(),localStorage.setItem("snow","on")}}function d(){n&&(n.style.display="none"),i&&(cancelAnimationFrame(i),i=null),o=[],localStorage.setItem("snow","off")}a.prototype.update=function(){this.y+=this.speed,this.x+=this.wind+.5*Math.sin(this.y/30),this.y>window.innerHeight&&(this.y=-20,this.x=Math.random()*window.innerWidth),this.element.style.left=this.x+"px",this.element.style.top=this.y+"px"},window.toggleSnow=function(){(t()?d:e)()},window.initSnow=function(){s(),(t()?e:d)()}})();
+// 互动落雪特效 - 优化版
+(function() {
+    var snowContainer, snowflakes = [], animationId;
+    // 状态直接从 localStorage 读取，避免变量被 PJAX 重置
+    var getSnowStatus = () => localStorage.getItem('snow') === 'on';
+
+    function createSnowContainer() {
+        if (document.getElementById('snow-container')) {
+            snowContainer = document.getElementById('snow-container');
+            return;
+        }
+        snowContainer = document.createElement('div');
+        snowContainer.id = 'snow-container';
+        snowContainer.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;overflow:hidden;display:none;';
+        document.body.appendChild(snowContainer);
+    }
+
+    function Snowflake() {
+        this.element = document.createElement('div');
+        this.element.textContent = '❆';
+        this.element.style.cssText = 'position:absolute;color:#fff;font-size:' + (Math.random() * 10 + 10) + 'px;opacity:' + Math.random() + ';user-select:none;';
+        this.x = Math.random() * window.innerWidth;
+        this.y = Math.random() * -window.innerHeight;
+        this.speed = Math.random() * 2 + 1;
+        this.wind = Math.random() * 1 - 0.5;
+        this.element.style.left = this.x + 'px';
+        this.element.style.top = this.y + 'px';
+        snowContainer.appendChild(this.element);
+    }
+
+    Snowflake.prototype.update = function() {
+        this.y += this.speed;
+        this.x += this.wind + Math.sin(this.y / 30) * 0.5;
+        if (this.y > window.innerHeight) {
+            this.y = -20;
+            this.x = Math.random() * window.innerWidth;
+        }
+        this.element.style.left = this.x + 'px';
+        this.element.style.top = this.y + 'px';
+    };
+
+    function startSnow() {
+        if (!snowContainer) createSnowContainer();
+        if (animationId) return; // 防止重复启动
+
+        snowContainer.style.display = 'block';
+        snowContainer.innerHTML = ''; // 清空旧星星
+        snowflakes = [];
+        
+        // 创建星星
+        for (var i = 0; i < 80; i++) {
+            var star = document.createElement('div');
+            star.style.cssText = 'position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;opacity:' + Math.random() + ';animation:twinkle ' + (Math.random() * 3 + 2)+ 's infinite;';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 60 + '%';
+            snowContainer.appendChild(star);
+        }
+        // 创建雪花
+        for (var i = 0; i < 50; i++) {
+            snowflakes.push(new Snowflake());
+        }
+        
+        function animate() {
+            for (var i = 0; i < snowflakes.length; i++) {
+                snowflakes[i].update();
+            }
+            animationId = requestAnimationFrame(animate);
+        }
+        animate();
+        localStorage.setItem('snow', 'on');
+    }
+
+    function stopSnow() {
+        if (snowContainer) snowContainer.style.display = 'none';
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+            animationId = null;
+        }
+        snowflakes = [];
+        localStorage.setItem('snow', 'off');
+    }
+
+    window.toggleSnow = function() {
+        getSnowStatus() ? stopSnow() : startSnow();
+    };
+
+    window.initSnow = function() {
+        createSnowContainer();
+        if (getSnowStatus()) {
+            startSnow();
+        } else {
+            stopSnow();
+        }
+    };
+})();
